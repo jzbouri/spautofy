@@ -1,0 +1,175 @@
+[
+
+    {
+        "type": "function",
+        "name": "get_album",
+        "description": "Get Spotify catalog information for a single album.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Spotify ID of the album. Example: 4aawyAB9vmqN3uQ7FjRGTy"
+                },
+                "market": {
+                    "type": "string",
+                    "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. Example: ES"
+                }
+            },
+            "required": ["id"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "get_several_albums",
+        "description": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of the Spotify IDs for the albums. Maximum: 20 IDs. Example: ['382ObEPsp2rxGrnsizN5TX', '1A2GTWGtFfWp7KSQTwWOyo', '2noRn2Aes5aoNVsU6iWThc']"
+                },
+                "market": {
+                    "type": "string",
+                    "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. Example: ES"
+                }
+            },
+            "required": ["ids"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "get_album_tracks",
+        "description": "Get Spotify catalog information about an album's tracks. Optional parameters can be used to limit the number of tracks returned.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Spotify ID of the album. Example: 4aawyAB9vmqN3uQ7FjRGTy"
+                },
+                "market": {
+                    "type": "string",
+                    "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. Example: ES"
+                },
+                "limit": {
+                    "type": "integer",
+                    "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+                }
+            },
+            "required": ["id"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "get_users_saved_albums",
+        "description": "Get a list of the albums saved in the current Spotify user's 'Your Music' library.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+                },
+                "market": {
+                    "type": "string",
+                    "description": "An ISO 3166-1 alpha-2 country code. If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. Example: ES"
+                }
+            },
+            "required": []
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "save_albums_for_current_user",
+        "description": "Save one or more albums to the current user's 'Your Music' library.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of the Spotify IDs for the albums. Maximum: 20 IDs. Example: ['382ObEPsp2rxGrnsizN5TX', '1A2GTWGtFfWp7KSQTwWOyo', '2noRn2Aes5aoNVsU6iWThc']"
+                }
+            },
+            "required": ["ids"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "remove_users_saved_albums",
+        "description": "Remove one or more albums from the current user's 'Your Music' library.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of the Spotify IDs for the albums. Maximum: 20 IDs. Example: ['382ObEPsp2rxGrnsizN5TX', '1A2GTWGtFfWp7KSQTwWOyo', '2noRn2Aes5aoNVsU6iWThc']"
+                }
+            },
+            "required": ["ids"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "check_users_saved_albums",
+        "description": "Check if one or more albums is already saved in the current Spotify user's 'Your Music' library.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of the Spotify IDs for the albums. Maximum: 20 IDs. Example: ['382ObEPsp2rxGrnsizN5TX', '1A2GTWGtFfWp7KSQTwWOyo', '2noRn2Aes5aoNVsU6iWThc']"
+                }
+            },
+            "required": ["ids"]
+        }
+    },
+
+    {
+        "type": "function",
+        "name": "get_new_releases",
+        "description": "Get a list of new album releases featured in Spotify (shown, for example, on a Spotify player's “Browse” tab).",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer",
+                    "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+                }
+            },
+            "required": []
+        }
+    }
+
+]

@@ -5,7 +5,6 @@ def get_album(id: str, market: str = None):
 
     params = {}
     if market is not None:
-        print(f"market: {market}")
         params["market"] = market
     
     return base_request(route, "GET", params=params)
