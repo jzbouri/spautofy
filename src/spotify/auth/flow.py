@@ -2,10 +2,12 @@ import subprocess
 import webbrowser
 import time
 import os
-import shutil
 from dotenv import load_dotenv
+import json
+import shutil
 
 from src.spotify.auth.access_token import get_and_save_access_token
+from src.spotify.auth.refresh_token import get_and_save_refresh_token
 
 load_dotenv()
 
@@ -17,8 +19,13 @@ if client_id is None or client_secret is None or redirect_uri is None:
     raise ValueError("SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REDIRECT_URI are required")
 
 def auth_flow():
-    if os.path.exists("src/spotify/auth/credentials"):
-        shutil.rmtree("src/spotify/auth/credentials")
+    if os.path.exists("src/spotify/auth/credentials") and "access_token.json" in os.listdir("src/spotify/auth/credentials"):
+        with open("src/spotify/auth/credentials/access_token.json", "r") as f:
+            if "refresh_token" in json.load(f):
+                get_and_save_refresh_token(client_id, client_secret)
+                return
+
+    shutil.rmtree("src/spotify/auth/credentials", exist_ok=True)
     os.makedirs("src/spotify/auth/credentials")
     
     flask_process = subprocess.Popen(

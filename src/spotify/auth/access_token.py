@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_and_save_access_token(client_id: str, client_secret: str, redirect_uri: str):
-    combined = f"{client_id}:{client_secret}"
-    encoded_auth = base64.b64encode(combined.encode()).decode()
+    combined_auth = f"{client_id}:{client_secret}"
+    encoded_auth = base64.b64encode(combined_auth.encode()).decode()
     
     with open("src/spotify/auth/credentials/user_auth.json", "r") as f:
         auth_data = json.load(f)
