@@ -24,6 +24,9 @@ def get_and_save_refresh_token(client_id: str, client_secret: str) -> None:
     response = requests.post(url, headers=headers, data=data)
     response_json = response.json()
     
-    if "refresh_token" in response_json:
-        with open("src/spotify/auth/credentials/access_token.json", "w") as f:
-            json.dump(response.json(), f, indent=4)
+    
+    if "refresh_token" not in response_json:
+        response_json["refresh_token"] = current_refresh_token
+    
+    with open("src/spotify/auth/credentials/access_token.json", "w") as f:
+        json.dump(response_json, f, indent=4)
