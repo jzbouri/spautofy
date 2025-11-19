@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def start_or_resume_playback() -> tuple[callable, dict]:
     def function(device_id: str = None, context_uri: str = None, uris: list[str] = None, offset: dict = None, position_ms: int = None) -> str:
@@ -20,7 +20,7 @@ def start_or_resume_playback() -> tuple[callable, dict]:
             
         print(body)
         
-        return base_request(route, "PUT", params=params, body=body)
+        return base_api_request(route, "PUT", params=params, body=body)
     
     tool_definition = {
         "type": "function",
