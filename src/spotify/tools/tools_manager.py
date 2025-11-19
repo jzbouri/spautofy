@@ -23,6 +23,8 @@ from src.spotify.tools.player.start_or_resume_playback import start_or_resume_pl
 from src.spotify.tools.player.toggle_playback_shuffle import toggle_playback_shuffle
 from src.spotify.tools.player.transfer_playback import transfer_playback
 
+from src.spotify.tools.search.search_for_item import search_for_item
+
 tools_functions = [
     check_users_saved_albums,
     get_album,
@@ -47,6 +49,7 @@ tools_functions = [
     start_or_resume_playback,
     toggle_playback_shuffle,
     transfer_playback,
+    search_for_item,
 ]
 
 tools_dict = {}
