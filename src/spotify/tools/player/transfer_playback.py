@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def transfer_playback() -> tuple[callable, dict]:
     def function(device_ids: list[str], play: bool = None) -> str:
@@ -9,7 +9,7 @@ def transfer_playback() -> tuple[callable, dict]:
         if play:
             body["play"] = play
         
-        return base_request(route, "PUT", body=body)
+        return base_api_request(route, "PUT", body=body)
     
     tool_definition = {
         "type": "function",

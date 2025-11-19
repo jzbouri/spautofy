@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def check_users_saved_albums() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
@@ -7,7 +7,7 @@ def check_users_saved_albums() -> tuple[callable, dict]:
         params = {}
         params["ids"] = ids
         
-        return base_request(route, "GET", params=params)
+        return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",

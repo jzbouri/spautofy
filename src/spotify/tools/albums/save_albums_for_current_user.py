@@ -1,18 +1,18 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
-def remove_users_saved_albums() -> tuple[callable, dict]:
+def save_albums_for_current_user() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
         route = f"/me/albums"
         
         body = {}
         body["ids"] = ids
         
-        return base_request(route, "DELETE", body=body)
+        return base_api_request(route, "PUT", body=body)
     
     tool_definition = {
         "type": "function",
-        "name": "remove_users_saved_albums",
-        "description": "Remove one or more albums from the current user's 'Your Music' library.",
+        "name": "save_albums_for_current_user",
+        "description": "Save one or more albums to the current user's 'Your Music' library.",
         "parameters": {
             "type": "object",
             "properties": {

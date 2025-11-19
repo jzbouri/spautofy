@@ -1,8 +1,8 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
-def get_new_releases() -> tuple[callable, dict]:
-    def function(limit: int = None, offset: int = None) -> str:
-        route = f"/browse/new-releases"
+def get_album_tracks() -> tuple[callable, dict]:
+    def function(id: str, limit: int = None, offset: int = None) -> str:
+        route = f"/albums/{id}/tracks"
         
         params = {}
         if limit:
@@ -10,15 +10,19 @@ def get_new_releases() -> tuple[callable, dict]:
         if offset:
             params["offset"] = offset
         
-        return base_request(route, "GET", params=params)
+        return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",
-        "name": "get_new_releases",
-        "description": "Get a list of new album releases featured in Spotify (shown, for example, on a Spotify player's “Browse” tab).",
+        "name": "get_album_tracks",
+        "description": "Get Spotify catalog information about an album's tracks. Optional parameters can be used to limit the number of tracks returned.",
         "parameters": {
             "type": "object",
             "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Spotify ID of the album. Example: 4aawyAB9vmqN3uQ7FjRGTy"
+                },
                 "limit": {
                     "type": "integer",
                     "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
@@ -28,7 +32,7 @@ def get_new_releases() -> tuple[callable, dict]:
                     "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
                 }
             },
-            "required": []
+            "required": ["id"]
         }
     }
     

@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def add_item_to_playback_queue() -> tuple[callable, dict]:
     def function(uri: str, device_id: str = None) -> str:
@@ -9,7 +9,7 @@ def add_item_to_playback_queue() -> tuple[callable, dict]:
         if device_id:
             params["device_id"] = device_id
             
-        return base_request(route, "POST", params=params)
+        return base_api_request(route, "POST", params=params)
     
     tool_definition = {
         "type": "function",

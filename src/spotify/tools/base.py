@@ -6,7 +6,7 @@ with open("src/spotify/auth/credentials/access_token.json", "r") as f:
 
 base_url = "https://api.spotify.com/v1"
 
-def base_request(route: str, method: str, params: dict = None, body: dict = None):
+def base_api_request(route: str, method: str, params: dict = None, body: dict = None):
     headers = {
         "Authorization": f"Bearer {access_token}"
     }
@@ -15,6 +15,5 @@ def base_request(route: str, method: str, params: dict = None, body: dict = None
         response = requests.request(method, f"{base_url}{route}", headers=headers, params=params, data=json.dumps(body))
     else:
         response = requests.request(method, f"{base_url}{route}", headers=headers, params=params)
-    
-    print(response.status_code)
+  
     return response.text

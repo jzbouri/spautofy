@@ -1,18 +1,18 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
-def save_albums_for_current_user() -> tuple[callable, dict]:
+def get_several_albums() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
-        route = f"/me/albums"
+        route = f"/albums"
         
-        body = {}
-        body["ids"] = ids
+        params = {}
+        params["ids"] = ids
         
-        return base_request(route, "PUT", body=body)
+        return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",
-        "name": "save_albums_for_current_user",
-        "description": "Save one or more albums to the current user's 'Your Music' library.",
+        "name": "get_several_albums",
+        "description": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
         "parameters": {
             "type": "object",
             "properties": {

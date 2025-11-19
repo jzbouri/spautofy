@@ -1,19 +1,19 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
-def pause_playback() -> tuple[callable, dict]:
+def skip_to_previous() -> tuple[callable, dict]:
     def function(device_id: str = None) -> str:
-        route = f"/me/player/pause"
+        route = f"/me/player/previous"
         
         params = {}
         if device_id:
             params["device_id"] = device_id
-        
-        return base_request(route, "PUT", params=params)
+            
+        return base_api_request(route, "POST", params=params)
     
     tool_definition = {
         "type": "function",
-        "name": "pause_playback",
-        "description": "Pause playback on the user's account. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
+        "name": "skip_to_previous",
+        "description": "Skips to previous track in the user's queue. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",
             "properties": {

@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def get_recently_played_tracks() -> tuple[callable, dict]:
     def function(limit: int = None, after: int = None, before: int = None) -> str:
@@ -12,7 +12,7 @@ def get_recently_played_tracks() -> tuple[callable, dict]:
         if before:
             params["before"] = before
             
-        return base_request(route, "GET", params=params)
+        return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",

@@ -1,4 +1,4 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
 def toggle_playback_shuffle() -> tuple[callable, dict]:
     def function(state: bool, device_id: str = None) -> str:
@@ -9,7 +9,7 @@ def toggle_playback_shuffle() -> tuple[callable, dict]:
         if device_id:
             params["device_id"] = device_id
             
-        return base_request(route, "PUT", params=params)
+        return base_api_request(route, "PUT", params=params)
     
     tool_definition = {
         "type": "function",

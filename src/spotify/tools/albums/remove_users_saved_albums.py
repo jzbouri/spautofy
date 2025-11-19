@@ -1,18 +1,18 @@
-from src.spotify.requests.base_request import base_request
+from src.spotify.tools.base import base_api_request
 
-def get_several_albums() -> tuple[callable, dict]:
+def remove_users_saved_albums() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
-        route = f"/albums"
+        route = f"/me/albums"
         
-        params = {}
-        params["ids"] = ids
+        body = {}
+        body["ids"] = ids
         
-        return base_request(route, "GET", params=params)
+        return base_api_request(route, "DELETE", body=body)
     
     tool_definition = {
         "type": "function",
-        "name": "get_several_albums",
-        "description": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
+        "name": "remove_users_saved_albums",
+        "description": "Remove one or more albums from the current user's 'Your Music' library.",
         "parameters": {
             "type": "object",
             "properties": {
