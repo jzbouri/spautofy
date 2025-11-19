@@ -19,7 +19,7 @@ def search_for_item() -> tuple[callable, dict]:
     tool_definition = {
         "type": "function",
         "name": "search_for_item",
-        "description": "Search for an item on Spotify.",
+        "description": "Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or audiobooks that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.",
         "parameters": {
             "type": "object",
             "properties": {
