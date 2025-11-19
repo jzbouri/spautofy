@@ -25,6 +25,18 @@ from src.spotify.tools.player.transfer_playback import transfer_playback
 
 from src.spotify.tools.search.search_for_item import search_for_item
 
+from src.spotify.tools.playlists.get_playlist import get_playlist
+from src.spotify.tools.playlists.change_playlist_details import change_playlist_details
+from src.spotify.tools.playlists.get_playlist_items import get_playlist_items
+from src.spotify.tools.playlists.update_playlist_items import update_playlist_items
+from src.spotify.tools.playlists.add_items_to_playlist import add_items_to_playlist
+from src.spotify.tools.playlists.remove_playlist_items import remove_playlist_items
+from src.spotify.tools.playlists.get_current_users_playlists import get_current_users_playlists
+from src.spotify.tools.playlists.get_users_playlists import get_users_playlists
+from src.spotify.tools.playlists.create_playlist import create_playlist
+from src.spotify.tools.playlists.get_playlist_cover_image import get_playlist_cover_image
+from src.spotify.tools.playlists.add_custom_playlist_cover_image import add_custom_playlist_cover_image
+
 tools_functions = [
     check_users_saved_albums,
     get_album,
@@ -50,6 +62,17 @@ tools_functions = [
     toggle_playback_shuffle,
     transfer_playback,
     search_for_item,
+    get_playlist,
+    change_playlist_details,
+    get_playlist_items,
+    update_playlist_items,
+    add_items_to_playlist,
+    remove_playlist_items,
+    get_current_users_playlists,
+    get_users_playlists,
+    create_playlist,
+    get_playlist_cover_image,
+    add_custom_playlist_cover_image,
 ]
 
 tools_dict = {}
