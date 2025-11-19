@@ -16,4 +16,5 @@ def base_request(route: str, method: str, params: dict = None, body: dict = None
     else:
         response = requests.request(method, f"{base_url}{route}", headers=headers, params=params)
     
+    print(response.status_code)
     return response.text
