@@ -55,6 +55,11 @@ from src.spotify.tools.tracks.save_tracks_for_current_user import save_tracks_fo
 from src.spotify.tools.tracks.remove_users_saved_tracks import remove_users_saved_tracks
 from src.spotify.tools.tracks.check_users_saved_tracks import check_users_saved_tracks
 
+from src.spotify.tools.artists.get_artist import get_artist
+from src.spotify.tools.artists.get_several_artists import get_several_artists
+from src.spotify.tools.artists.get_artists_albums import get_artists_albums
+from src.spotify.tools.artists.get_artists_top_tracks import get_artists_top_tracks
+
 tools_functions = [
     check_users_saved_albums,
     get_album,
@@ -107,6 +112,10 @@ tools_functions = [
     save_tracks_for_current_user,
     remove_users_saved_tracks,
     check_users_saved_tracks,
+    get_artist,
+    get_several_artists,
+    get_artists_albums,
+    get_artists_top_tracks,
 ]
 
 tools_dict = {}
