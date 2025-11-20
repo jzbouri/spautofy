@@ -36,6 +36,7 @@ from src.spotify.tools.playlists.get_users_playlists import get_users_playlists
 from src.spotify.tools.playlists.create_playlist import create_playlist
 from src.spotify.tools.playlists.get_playlist_cover_image import get_playlist_cover_image
 from src.spotify.tools.playlists.add_custom_playlist_cover_image import add_custom_playlist_cover_image
+
 from src.spotify.tools.users.get_current_users_profile import get_current_users_profile
 from src.spotify.tools.users.get_current_users_top_items import get_current_users_top_items
 from src.spotify.tools.users.get_users_profile import get_users_profile
@@ -46,6 +47,13 @@ from src.spotify.tools.users.follow_artists_or_users import follow_artists_or_us
 from src.spotify.tools.users.unfollow_artists_or_users import unfollow_artists_or_users
 from src.spotify.tools.users.check_if_user_follows_artists_or_users import check_if_user_follows_artists_or_users
 from src.spotify.tools.users.check_if_current_user_follows_playlist import check_if_current_user_follows_playlist
+
+from src.spotify.tools.tracks.get_track import get_track
+from src.spotify.tools.tracks.get_several_tracks import get_several_tracks
+from src.spotify.tools.tracks.get_users_saved_tracks import get_users_saved_tracks
+from src.spotify.tools.tracks.save_tracks_for_current_user import save_tracks_for_current_user
+from src.spotify.tools.tracks.remove_users_saved_tracks import remove_users_saved_tracks
+from src.spotify.tools.tracks.check_users_saved_tracks import check_users_saved_tracks
 
 tools_functions = [
     check_users_saved_albums,
@@ -93,6 +101,12 @@ tools_functions = [
     unfollow_artists_or_users,
     check_if_user_follows_artists_or_users,
     check_if_current_user_follows_playlist,
+    get_track,
+    get_several_tracks,
+    get_users_saved_tracks,
+    save_tracks_for_current_user,
+    remove_users_saved_tracks,
+    check_users_saved_tracks,
 ]
 
 tools_dict = {}
