@@ -36,6 +36,16 @@ from src.spotify.tools.playlists.get_users_playlists import get_users_playlists
 from src.spotify.tools.playlists.create_playlist import create_playlist
 from src.spotify.tools.playlists.get_playlist_cover_image import get_playlist_cover_image
 from src.spotify.tools.playlists.add_custom_playlist_cover_image import add_custom_playlist_cover_image
+from src.spotify.tools.users.get_current_users_profile import get_current_users_profile
+from src.spotify.tools.users.get_current_users_top_items import get_current_users_top_items
+from src.spotify.tools.users.get_users_profile import get_users_profile
+from src.spotify.tools.users.follow_playlist import follow_playlist
+from src.spotify.tools.users.unfollow_playlist import unfollow_playlist
+from src.spotify.tools.users.get_followed_artists import get_followed_artists
+from src.spotify.tools.users.follow_artists_or_users import follow_artists_or_users
+from src.spotify.tools.users.unfollow_artists_or_users import unfollow_artists_or_users
+from src.spotify.tools.users.check_if_user_follows_artists_or_users import check_if_user_follows_artists_or_users
+from src.spotify.tools.users.check_if_current_user_follows_playlist import check_if_current_user_follows_playlist
 
 tools_functions = [
     check_users_saved_albums,
@@ -73,6 +83,16 @@ tools_functions = [
     create_playlist,
     get_playlist_cover_image,
     add_custom_playlist_cover_image,
+    get_current_users_profile,
+    get_current_users_top_items,
+    get_users_profile,
+    follow_playlist,
+    unfollow_playlist,
+    get_followed_artists,
+    follow_artists_or_users,
+    unfollow_artists_or_users,
+    check_if_user_follows_artists_or_users,
+    check_if_current_user_follows_playlist,
 ]
 
 tools_dict = {}
