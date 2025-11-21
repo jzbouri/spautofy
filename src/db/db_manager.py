@@ -45,7 +45,7 @@ class DatabaseManager:
             cursor.execute(f.read())
         cursor.close()
     
-    def create_chat(self) -> RealDictRow:
+    def store_chat(self) -> RealDictRow:
         cursor = self.conn.cursor(cursor_factory=RealDictCursor)
         chat_id = uuid.uuid4()
         cursor.execute("INSERT INTO chats (id) VALUES (%s) RETURNING *", (str(chat_id),))
@@ -70,7 +70,7 @@ class DatabaseManager:
         cursor.close()
         return list(events)
     
-    def create_llm_response(self, chat_id: str, input_tokens: int, cached_tokens: int, output_tokens: int) -> RealDictRow:
+    def store_llm_response(self, chat_id: str, input_tokens: int, cached_tokens: int, output_tokens: int) -> RealDictRow:
         cursor = self.conn.cursor(cursor_factory=RealDictCursor)
         llm_response_id = uuid.uuid4()
         cursor.execute(
@@ -81,7 +81,7 @@ class DatabaseManager:
         cursor.close()
         return llm_response
     
-    def create_chat_event(self, chat_id: str, event_type: str, event_object: dict) -> RealDictRow:
+    def store_chat_event(self, chat_id: str, event_type: str, event_object: dict) -> RealDictRow:
         cursor = self.conn.cursor(cursor_factory=RealDictCursor)
         chat_event_id = uuid.uuid4()
         cursor.execute(
