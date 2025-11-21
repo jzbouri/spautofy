@@ -9,4 +9,5 @@ dependencies = [
     "flask>=3.1.2",
     "openai>=2.8.1",
     "requests",
+    "psycopg2-binary",
 ]
