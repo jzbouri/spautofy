@@ -12,4 +12,5 @@ dependencies = [
     "psycopg2-binary",
     "questionary>=2.1.1",
     "rich",
+    "typing-extensions>=4.15.0",
 ]

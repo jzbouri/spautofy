@@ -540,6 +540,7 @@ dependencies = [
     { name = "questionary" },
     { name = "requests" },
     { name = "rich" },
+    { name = "typing-extensions" },
 ]
 
 [package.metadata]
@@ -551,6 +552,7 @@ requires-dist = [
     { name = "questionary", specifier = ">=2.1.1" },
     { name = "requests" },
     { name = "rich" },
+    { name = "typing-extensions", specifier = ">=4.15.0" },
 ]
 
 [[package]]
