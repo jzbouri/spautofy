@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import time
 import json
+from typing import Generator
 
 from src.db.db_manager import DatabaseManager
 from src.spotify.tools.tools_manager import tools_dict
@@ -43,13 +44,15 @@ def _get_new_events_from_llm(chat_id: str, events: list[dict]) -> list[dict]:
 
     return [_clean_llm_event(dict(item.model_dump())) for item in response.output]
 
-def handle_user_message(chat_id: str, new_user_message: str) -> str:
+def handle_user_message(chat_id: str, new_user_message: str) -> Generator[dict, None, None]:
     user_message_event_object = {
         "role": "user",
         "content": new_user_message
     }
     
     db_manager.store_chat_event(chat_id, 'user_message', user_message_event_object)
+    
+    yield user_message_event_object
     
     existing_event_objects = [event['event_object'] for event in db_manager.get_chat_events(chat_id)]
     new_event_objects = _get_new_events_from_llm(chat_id, existing_event_objects)
@@ -61,12 +64,14 @@ def handle_user_message(chat_id: str, new_user_message: str) -> str:
         event_object=event_object) 
      for event_object in new_event_objects]
 
+    for event_object in new_event_objects:
+        yield event_object
+
     while True:
         function_calls_made = False
         
         for event_object in new_event_objects:
             if event_object['type'] == "function_call":
-
                 function_calls_made = True
                 arguments = json.loads(event_object['arguments'])
 
@@ -78,6 +83,8 @@ def handle_user_message(chat_id: str, new_user_message: str) -> str:
                     "call_id": event_object['call_id'],
                     "output": function_response
                 }
+                
+                yield function_output_object
                 
                 db_manager.store_chat_event(chat_id, 'function_call_output', function_output_object)
                 all_event_objects.append(function_output_object)
@@ -93,5 +100,6 @@ def handle_user_message(chat_id: str, new_user_message: str) -> str:
             event_type=event_object['type'], 
             event_object=event_object) 
         for event_object in new_event_objects]
-
-    return all_event_objects[-1]['content'][0]['text']
+        
+        for event_object in new_event_objects:
+            yield event_object
