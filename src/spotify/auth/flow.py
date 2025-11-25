@@ -25,7 +25,8 @@ def auth_flow():
                 get_and_save_refresh_token(client_id, client_secret)
                 return
 
-    shutil.rmtree("src/spotify/auth/credentials", exist_ok=True)
+    if os.path.exists("src/spotify/auth/credentials"):
+        shutil.rmtree("src/spotify/auth/credentials")
     os.makedirs("src/spotify/auth/credentials")
     
     flask_process = subprocess.Popen(
