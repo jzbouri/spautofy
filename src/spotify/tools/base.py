@@ -1,12 +1,16 @@
 import requests
 import json
 
-with open("src/spotify/auth/credentials/access_token.json", "r") as f:
-    access_token = json.load(f)["access_token"]
+from src.spotify.auth.flow import auth_flow
 
 base_url = "https://api.spotify.com/v1"
 
 def base_api_request(route: str, method: str, params: dict = None, body: dict = None, content_type: str = None):
+    
+    auth_flow()
+    with open("src/spotify/auth/credentials/access_token.json", "r") as f:
+        access_token = json.load(f)["access_token"]
+    
     headers = {
         "Authorization": f"Bearer {access_token}"
     }
