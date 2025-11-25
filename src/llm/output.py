@@ -31,5 +31,10 @@ def get_output_text(event_object):
     elif "type" in event_object and event_object["type"] == "function_call_output":
         text = Text("Function call completed", style="dim green")
         return text
+    elif "type" in event_object and event_object["type"] == "web_search_call":
+        text = Text()
+        text.append("Assistant is searching the web for ", style="dim")
+        text.append(f"\"{event_object['action']['query']}\"", style="bold blue")
+        return text
     else:
         return Text("")
