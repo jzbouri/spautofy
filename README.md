@@ -1,4 +1,4 @@
-# Sp<span style="color: #E0B0FF">auto</span>fy
+# Spautofy
 
 *This repo is a major work in progress, including the docs. Improvements to come!*
 
@@ -39,11 +39,11 @@ And chat!
 
 ## Gallery
 
-Creating a playlist with a prompt
+*Creating a playlist with a prompt*
 ![querying a playlist](images/playlist-query.png)
 
-Final output for playlist creation
+*Final output for playlist creation*
 ![playlist creation](images/playlist-final.png)
 
-Newly created playlist in Spotify
+*Newly created playlist in Spotify*
 ![playlist spotify](images/playlist-spotify.png)
