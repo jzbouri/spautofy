@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# This entire script is for my own convenience, I'll make it better later
+
+cd "/Users/jalal/Desktop/spautofy"
+source .venv/bin/activate
+python main.py
