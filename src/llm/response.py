@@ -6,16 +6,13 @@ import json
 from typing import Generator
 
 from src.db.db_manager import DatabaseManager
-from src.spotify.tools.tools_manager import tools_dict
+from src.llm.tools_master import tools_dict, tools_definitions
 
 load_dotenv()
 
 db_manager = DatabaseManager()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-tools_definitions = [tool["tool_definition"] for tool in tools_dict.values()]
-tools_definitions.append({"type": "web_search"})
 
 def _clean_llm_event(llm_event: dict) -> dict:
     if "status" in llm_event:
@@ -75,7 +72,7 @@ def handle_user_message(chat_id: str, new_user_message: str) -> Generator[dict, 
                 function_calls_made = True
                 arguments = json.loads(event_object['arguments'])
 
-                function_name = tools_dict[event_object['name']]["function"]
+                function_name = tools_dict[event_object['name']]['function']
                 function_response = function_name(**arguments)
                 
                 function_output_object = {
