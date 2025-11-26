@@ -14,7 +14,7 @@ def get_users_playlists() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_users_playlists",
+        "name": "spotify_get_users_playlists",
         "description": "Get a list of the playlists owned or followed by a Spotify user.",
         "parameters": {
             "type": "object",

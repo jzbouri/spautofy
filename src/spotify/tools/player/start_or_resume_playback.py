@@ -24,7 +24,7 @@ def start_or_resume_playback() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "start_or_resume_playback",
+        "name": "spotify_start_or_resume_playback",
         "description": "Start a new context or resume current playback on the user's active device. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

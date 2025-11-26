@@ -8,8 +8,18 @@ def get_playlist_cover_image() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_playlist_cover_image",
+        "name": "spotify_get_playlist_cover_image",
         "description": "Get the cover image for a playlist.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "playlist_id": {
+                    "type": "string",
+                    "description": "The Spotify ID of the playlist."
+                }
+            },
+            "required": ["playlist_id"]
+        }
     }
     
     return function, tool_definition

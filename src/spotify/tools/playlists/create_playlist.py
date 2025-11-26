@@ -4,8 +4,10 @@ def create_playlist() -> tuple[callable, dict]:
     def function(user_id: str, name: str, public: bool = None, collaborative: bool = None, description: str = None) -> str:
         route = f"/users/{user_id}/playlists"
         
-        body = {}
-        body["name"] = name
+        body = {
+            "name": name
+        }
+        
         if public is not None:
             body["public"] = public
         if collaborative is not None:
@@ -17,7 +19,7 @@ def create_playlist() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "create_playlist",
+        "name": "spotify_create_playlist",
         "description": "Create a playlist for a Spotify user. (The playlist will be empty until you add tracks.) Each user is generally limited to a maximum of 11000 playlists.",
         "parameters": {
             "type": "object",

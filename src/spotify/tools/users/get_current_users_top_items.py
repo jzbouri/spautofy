@@ -16,7 +16,7 @@ def get_current_users_top_items() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_current_users_top_items",
+        "name": "spotify_get_current_users_top_items",
         "description": "Get the current user's top artists or tracks based on calculated affinity.",
         "parameters": {
             "type": "object",

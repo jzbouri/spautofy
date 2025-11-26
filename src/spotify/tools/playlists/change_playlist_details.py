@@ -18,7 +18,7 @@ def change_playlist_details() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "change_playlist_details",
+        "name": "spotify_change_playlist_details",
         "description": "Change a playlist's name and public/private state. (The user must, of course, own the playlist.)",
         "parameters": {
             "type": "object",

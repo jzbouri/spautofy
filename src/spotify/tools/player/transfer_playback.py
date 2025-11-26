@@ -13,7 +13,7 @@ def transfer_playback() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "transfer_playback",
+        "name": "spotify_transfer_playback",
         "description": "Transfer playback to a new device and optionally begin playback. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

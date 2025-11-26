@@ -11,7 +11,7 @@ def save_albums_for_current_user() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "save_albums_for_current_user",
+        "name": "spotify_save_albums_for_current_user",
         "description": "Save one or more albums to the current user's 'Your Music' library.",
         "parameters": {
             "type": "object",

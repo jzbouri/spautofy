@@ -8,7 +8,7 @@ def get_currently_playing_track() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_currently_playing_track",
+        "name": "spotify_get_currently_playing_track",
         "description": "Get the object currently being played on the user's Spotify account."
     }
     

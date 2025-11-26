@@ -4,9 +4,11 @@ def search_for_item() -> tuple[callable, dict]:
     def function(q: str, type: list[str], limit: int = None, offset: int = None, include_external: str = None) -> str:
         route = f"/search"
 
-        params = {}
-        params["q"] = q
-        params["type"] = type
+        params = {
+            "q": q,
+            "type": type
+        }
+        
         if limit:
             params["limit"] = limit
         if offset:
@@ -18,7 +20,7 @@ def search_for_item() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "search_for_item",
+        "name": "spotify_search_for_item",
         "description": "Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or audiobooks that match a keyword string. Audiobooks are only available within the US, UK, Canada, Ireland, New Zealand and Australia markets.",
         "parameters": {
             "type": "object",

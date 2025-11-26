@@ -8,7 +8,7 @@ def get_users_profile() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_users_profile",
+        "name": "spotify_get_users_profile",
         "description": "Get public profile information about a Spotify user.",
         "parameters": {
             "type": "object",

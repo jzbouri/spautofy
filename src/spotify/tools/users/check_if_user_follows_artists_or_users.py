@@ -4,15 +4,16 @@ def check_if_user_follows_artists_or_users() -> tuple[callable, dict]:
     def function(type: str, ids: list[str]) -> str:
         route = f"/me/following/contains"
         
-        params = {}
-        params["type"] = type
-        params["ids"] = ids
+        params = {
+            "type": type,
+            "ids": ids
+        }
         
         return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",
-        "name": "check_if_user_follows_artists_or_users",
+        "name": "spotify_check_if_user_follows_artists_or_users",
         "description": "Check to see if the current user is following one or more artists or other Spotify users.",
         "parameters": {
             "type": "object",

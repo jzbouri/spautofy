@@ -14,7 +14,7 @@ def get_album_tracks() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_album_tracks",
+        "name": "spotify_get_album_tracks",
         "description": "Get Spotify catalog information about an album's tracks. Optional parameters can be used to limit the number of tracks returned.",
         "parameters": {
             "type": "object",

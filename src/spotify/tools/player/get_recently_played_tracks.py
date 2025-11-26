@@ -16,7 +16,7 @@ def get_recently_played_tracks() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_recently_played_tracks",
+        "name": "spotify_get_recently_played_tracks",
         "description": "Get the tracks recently played by the user. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

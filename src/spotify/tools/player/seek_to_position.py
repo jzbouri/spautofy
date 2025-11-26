@@ -4,8 +4,9 @@ def seek_to_position() -> tuple[callable, dict]:
     def function(position_ms: int, device_id: str = None) -> str:
         route = f"/me/player/seek"
         
-        params = {}
-        params["position_ms"] = position_ms
+        params = {
+            "position_ms": position_ms
+        }
         if device_id:
             params["device_id"] = device_id
             
@@ -13,7 +14,7 @@ def seek_to_position() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "seek_to_position",
+        "name": "spotify_seek_to_position",
         "description": "Seeks to the given position in the user's currently playing track. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

@@ -4,8 +4,9 @@ def toggle_playback_shuffle() -> tuple[callable, dict]:
     def function(state: bool, device_id: str = None) -> str:
         route = f"/me/player/shuffle"
         
-        params = {}
-        params["state"] = state
+        params = {
+            "state": state
+        }
         if device_id:
             params["device_id"] = device_id
             
@@ -13,7 +14,7 @@ def toggle_playback_shuffle() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "toggle_playback_shuffle",
+        "name": "spotify_toggle_playback_shuffle",
         "description": "Toggle shuffle on or off for the user's playback. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

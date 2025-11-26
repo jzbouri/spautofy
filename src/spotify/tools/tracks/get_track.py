@@ -8,7 +8,7 @@ def get_track() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_track",
+        "name": "spotify_get_track",
         "description": "Get Spotify catalog information for a single track identified by its unique Spotify ID.",
         "parameters": {
             "type": "object",

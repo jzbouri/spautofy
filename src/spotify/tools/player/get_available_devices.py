@@ -8,7 +8,7 @@ def get_available_devices() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_available_devices",
+        "name": "spotify_get_available_devices",
         "description": "Get information about a user's available Spotify Connect devices. Some device models are not supported and will not be listed in the API response."
     }
     

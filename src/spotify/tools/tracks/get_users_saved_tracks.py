@@ -14,7 +14,7 @@ def get_users_saved_tracks() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_users_saved_tracks",
+        "name": "spotify_get_users_saved_tracks",
         "description": "Get a list of the songs saved in the current Spotify user's 'Your Music' library.",
         "parameters": {
             "type": "object",

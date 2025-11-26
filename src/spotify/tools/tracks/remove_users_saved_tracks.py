@@ -4,14 +4,15 @@ def remove_users_saved_tracks() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
         route = f"/me/tracks"
         
-        body = {}
-        body["ids"] = ids
+        body = {
+            "ids": ids
+        }
         
         return base_api_request(route, "DELETE", body=body)
     
     tool_definition = {
         "type": "function",
-        "name": "remove_users_saved_tracks",
+        "name": "spotify_remove_users_saved_tracks",
         "description": "Remove one or more tracks from the current user's 'Your Music' library.",
         "parameters": {
             "type": "object",

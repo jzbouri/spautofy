@@ -14,7 +14,7 @@ def remove_playlist_items() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "remove_playlist_items",
+        "name": "spotify_remove_playlist_items",
         "description": "Remove one or more items from a user's playlist.",
         "parameters": {
             "type": "object",

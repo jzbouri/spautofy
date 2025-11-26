@@ -4,8 +4,9 @@ def set_playback_volume() -> tuple[callable, dict]:
     def function(volume_percent: int, device_id: str = None) -> str:
         route = f"/me/player/volume"
         
-        params = {}
-        params["volume_percent"] = volume_percent
+        params = {
+            "volume_percent": volume_percent
+        }
         if device_id:
             params["device_id"] = device_id
             
@@ -13,7 +14,7 @@ def set_playback_volume() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "set_playback_volume",
+        "name": "spotify_set_playback_volume",
         "description": "Set the volume for the user's current playback device. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

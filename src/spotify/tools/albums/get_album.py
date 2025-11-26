@@ -8,7 +8,7 @@ def get_album() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_album",
+        "name": "spotify_get_album",
         "description": "Get Spotify catalog information for a single album.",
         "parameters": {
             "type": "object",

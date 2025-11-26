@@ -14,7 +14,7 @@ def add_items_to_playlist() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "add_items_to_playlist",
+        "name": "spotify_add_items_to_playlist",
         "description": "Add one or more items to a user's playlist.",
         "parameters": {
             "type": "object",

@@ -4,17 +4,19 @@ def unfollow_artists_or_users() -> tuple[callable, dict]:
     def function(type: str, ids: list[str]) -> str:
         route = f"/me/following"
         
-        params = {}
-        params["type"] = type
+        params = {
+            "type": type
+        }
         
-        body = {}
-        body["ids"] = ids
+        body = {
+            "ids": ids
+        }
         
         return base_api_request(route, "DELETE", params=params, body=body)
     
     tool_definition = {
         "type": "function",
-        "name": "unfollow_artists_or_users",
+        "name": "spotify_unfollow_artists_or_users",
         "description": "Remove the current user as a follower of one or more artists or other Spotify users.",
         "parameters": {
             "type": "object",

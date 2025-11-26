@@ -4,6 +4,7 @@ def add_custom_playlist_cover_image() -> tuple[callable, dict]:
     def function(playlist_id: str, image_base64: str = None) -> str:
         route = f"/playlists/{playlist_id}/images"
         
+        body = None
         if image_base64:
             body = image_base64
             
@@ -13,7 +14,7 @@ def add_custom_playlist_cover_image() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "add_custom_playlist_cover_image",
+        "name": "spotify_add_custom_playlist_cover_image",
         "description": "Add a custom cover image to a playlist.",
         "parameters": {
             "type": "object",

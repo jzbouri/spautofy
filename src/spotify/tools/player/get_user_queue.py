@@ -8,7 +8,7 @@ def get_user_queue() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_user_queue",
+        "name": "spotify_get_user_queue",
         "description": "Get the list of objects that make up the user's queue.",
     }
     

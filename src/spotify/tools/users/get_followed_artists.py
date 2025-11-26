@@ -4,8 +4,10 @@ def get_followed_artists() -> tuple[callable, dict]:
     def function(type: str, after: str = None, limit: int = None) -> str:
         route = f"/me/following"
         
-        params = {}
-        params["type"] = type
+        params = {
+            "type": type
+        }
+        
         if after:
             params["after"] = after
         if limit:
@@ -15,7 +17,7 @@ def get_followed_artists() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_followed_artists",
+        "name": "spotify_get_followed_artists",
         "description": "Get the current user's followed artists.",
         "parameters": {
             "type": "object",

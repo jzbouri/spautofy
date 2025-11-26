@@ -8,7 +8,7 @@ def get_playback_state() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_playback_state",
+        "name": "spotify_get_playback_state",
         "description": "Get information about the user's current playback state, including track or episode, progress, and active device.",
     }
     

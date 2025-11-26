@@ -8,7 +8,7 @@ def get_current_users_profile() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_current_users_profile",
+        "name": "spotify_get_current_users_profile",
         "description": "Get detailed profile information about the current user (including the current user's username).",
     }
     

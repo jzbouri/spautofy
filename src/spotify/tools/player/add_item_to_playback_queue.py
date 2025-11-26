@@ -4,8 +4,9 @@ def add_item_to_playback_queue() -> tuple[callable, dict]:
     def function(uri: str, device_id: str = None) -> str:
         route = f"/me/player/queue"
         
-        params = {}
-        params["uri"] = uri
+        params = {
+            "uri": uri
+        }
         if device_id:
             params["device_id"] = device_id
             
@@ -13,7 +14,7 @@ def add_item_to_playback_queue() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "add_item_to_playback_queue",
+        "name": "spotify_add_item_to_playback_queue",
         "description": "Add an item to be played next in the user's current playback queue. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

@@ -12,7 +12,7 @@ def follow_playlist() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "follow_playlist",
+        "name": "spotify_follow_playlist",
         "description": "Add the current user as a follower of a playlist.",
         "parameters": {
             "type": "object",
@@ -31,4 +31,3 @@ def follow_playlist() -> tuple[callable, dict]:
     }
     
     return function, tool_definition
-

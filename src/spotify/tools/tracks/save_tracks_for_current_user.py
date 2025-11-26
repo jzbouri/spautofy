@@ -14,7 +14,7 @@ def save_tracks_for_current_user() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "save_tracks_for_current_user",
+        "name": "spotify_save_tracks_for_current_user",
         "description": "Save one or more tracks to the current user's 'Your Music' library. At least one of 'ids' or 'timestamped_ids' must be provided.",
         "parameters": {
             "type": "object",
@@ -50,4 +50,3 @@ def save_tracks_for_current_user() -> tuple[callable, dict]:
     }
     
     return function, tool_definition
-

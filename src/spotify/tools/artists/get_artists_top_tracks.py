@@ -8,7 +8,7 @@ def get_artists_top_tracks() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_artists_top_tracks",
+        "name": "spotify_get_artists_top_tracks",
         "description": "Get Spotify catalog information about an artist's top tracks by country.",
         "parameters": {
             "type": "object",

@@ -4,14 +4,15 @@ def get_several_albums() -> tuple[callable, dict]:
     def function(ids: list[str]) -> str:
         route = f"/albums"
         
-        params = {}
-        params["ids"] = ids
+        params = {
+            "ids": ids
+        }
         
         return base_api_request(route, "GET", params=params)
     
     tool_definition = {
         "type": "function",
-        "name": "get_several_albums",
+        "name": "spotify_get_several_albums",
         "description": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
         "parameters": {
             "type": "object",

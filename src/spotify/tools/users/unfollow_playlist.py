@@ -8,7 +8,7 @@ def unfollow_playlist() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "unfollow_playlist",
+        "name": "spotify_unfollow_playlist",
         "description": "Remove the current user as a follower of a playlist.",
         "parameters": {
             "type": "object",

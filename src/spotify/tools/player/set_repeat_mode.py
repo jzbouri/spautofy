@@ -4,8 +4,9 @@ def set_repeat_mode() -> tuple[callable, dict]:
     def function(state: str, device_id: str = None) -> str:
         route = f"/me/player/repeat"
         
-        params = {}
-        params["state"] = state
+        params = {
+            "state": state
+        }
         if device_id:
             params["device_id"] = device_id
             
@@ -13,7 +14,7 @@ def set_repeat_mode() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "set_repeat_mode",
+        "name": "spotify_set_repeat_mode",
         "description": "Set the repeat mode for the user's playback. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

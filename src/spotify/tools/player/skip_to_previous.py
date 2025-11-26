@@ -12,7 +12,7 @@ def skip_to_previous() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "skip_to_previous",
+        "name": "spotify_skip_to_previous",
         "description": "Skips to previous track in the user's queue. This API only works for users who have Spotify Premium. The order of execution is not guaranteed when you use this API with other Player API endpoints.",
         "parameters": {
             "type": "object",

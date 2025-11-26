@@ -14,7 +14,7 @@ def get_new_releases() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "get_new_releases",
+        "name": "spotify_get_new_releases",
         "description": "Get a list of new album releases featured in Spotify (shown, for example, on a Spotify player's “Browse” tab).",
         "parameters": {
             "type": "object",

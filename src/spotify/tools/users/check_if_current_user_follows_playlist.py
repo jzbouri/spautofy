@@ -8,7 +8,7 @@ def check_if_current_user_follows_playlist() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "check_if_current_user_follows_playlist",
+        "name": "spotify_check_if_current_user_follows_playlist",
         "description": "Check to see if the current user is following a specified playlist.",
         "parameters": {
             "type": "object",

@@ -11,7 +11,7 @@ def remove_users_saved_albums() -> tuple[callable, dict]:
     
     tool_definition = {
         "type": "function",
-        "name": "remove_users_saved_albums",
+        "name": "spotify_remove_users_saved_albums",
         "description": "Remove one or more albums from the current user's 'Your Music' library.",
         "parameters": {
             "type": "object",
