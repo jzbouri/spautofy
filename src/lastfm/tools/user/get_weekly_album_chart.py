@@ -28,11 +28,11 @@ def get_weekly_album_chart() -> tuple[callable, dict]:
                 },
                 "from_date": {
                     "type": "integer",
-                    "description": "The date at which the chart should start from. (UNIX timestamp)"
+                    "description": "The date at which the chart should start from. (UNIX timestamp). Note: This MUST be an exact timestamp returned by lastfm_get_weekly_chart_list. Arbitrary dates will result in an error."
                 },
                 "to_date": {
                     "type": "integer",
-                    "description": "The date at which the chart should end on. (UNIX timestamp)"
+                    "description": "The date at which the chart should end on. (UNIX timestamp). Note: This MUST be an exact timestamp returned by lastfm_get_weekly_chart_list. Arbitrary dates will result in an error."
                 }
             },
             "required": ["user"]
