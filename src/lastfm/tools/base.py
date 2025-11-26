@@ -8,7 +8,7 @@ api_key = os.getenv("LASTFM_API_KEY")
 
 base_url = "https://ws.audioscrobbler.com/2.0/"
 
-def base_api_request(route: str, method: str, params: dict = None, body: dict = None):
+def base_api_request(method: str, route: str = "", params: dict = None, body: dict = None):
     
     if params is None:
         params = {}
