@@ -14,6 +14,10 @@ db_manager = DatabaseManager()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+with open("src/llm/system_prompt.txt", "r") as f:
+    system_prompt = f.read()
+    system_prompt_object = {"role": "system", "content": system_prompt}
+
 def _clean_llm_event(llm_event: dict) -> dict:
     if "status" in llm_event:
         llm_event.pop("status")
@@ -25,7 +29,7 @@ def _get_new_events_from_llm(chat_id: str, events: list[dict]) -> list[dict]:
             response = client.responses.create(
                 model="gpt-5",
                 tools=tools_definitions,
-                input=events,
+                input=[system_prompt_object] + events,
             )
             break
         except Exception as e:
