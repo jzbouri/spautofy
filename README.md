@@ -37,6 +37,10 @@ Run the CLI `python main.py`
 
 And chat!
 
+
+OR you can use [anmeet's](https://www.github.com/AnmeetS) super smart `install.sh` script:
+
+
 ## Gallery
 
 *Creating a playlist with a prompt*
