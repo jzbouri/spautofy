@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # This entire script is for my own convenience, I'll make it better later
-
-cd "/Users/anmeet/Desktop/spautofy"
+cd $(cat $HOME/spautofylocation.txt)
 source .venv/bin/activate
 python main.py
